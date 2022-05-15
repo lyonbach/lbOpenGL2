@@ -1,0 +1,12 @@
+env=Environment(
+    CPPPATH="../../thirdParty/include",
+    LIBPATH="../../thirdParty/lib/GLFW",
+    LIBS=["glfw3", "GL", "X11", "pthread", "Xrandr", "dl"],
+    SCONS_CXX_STANDARD="c++20",
+    )
+
+NAME = "triangle"
+SOURCES = [Glob("../../thirdParty/src/glad/*.c"), ]
+SOURCES.append(Glob(f"./{NAME}.cpp"))
+
+env.Program(NAME, SOURCES)
